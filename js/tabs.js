@@ -2,7 +2,7 @@ const tabButtons = document.querySelectorAll('.design-list__item');
 const tabDescriptions = document.querySelectorAll('.design__descr');
 const tabImages = document.querySelectorAll('.design-images');
 const designBlockImages = document.querySelectorAll('.design-block__img');
-const tabHeaders = document.querySelectorAll('.design__title')
+const tabActive = document.querySelector('.design__title:not(.hidden)');
 
 const changeContent = (array, value) => {
     array.forEach((item) => {
@@ -20,12 +20,6 @@ tabButtons.forEach((tabButton) => {
         changeContent(tabHeaders, dataValue);
         changeContent(designBlockImages, dataValue);
 
-        tabHeaders.forEach((header) => {
-            if (header.dataset.tabsField === dataValue) {
-                document.title = header.innerText;
-            }
-        })
-
         tabButtons.forEach((btn) => {
             if (btn === e.target) {
                 btn.classList.add('design-list__item_active');
@@ -35,3 +29,5 @@ tabButtons.forEach((tabButton) => {
         });
     });
 });
+
+document.title = tabActive.innerText;
