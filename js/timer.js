@@ -1,6 +1,8 @@
 const timerBlock = document.querySelector('.timer__time');
 const deadline = new Date(2022, 2, 31);
 
+updateClock();
+
 function updateClock() {
     const date = new Date().getTime();
     const dateDeadline = new Date(deadline).getTime();
